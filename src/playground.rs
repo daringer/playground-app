@@ -12,6 +12,7 @@ const TEST2: VendorCommand = VendorCommand::H76;
 const TEST3: VendorCommand = VendorCommand::H77;
 const TEST4: VendorCommand = VendorCommand::H78;
 const TEST5: VendorCommand = VendorCommand::H79;
+const TEST6: VendorCommand = VendorCommand::H7A;
 
 pub struct App<T>
 where T: TrussedClient,
@@ -38,6 +39,7 @@ where T: TrussedClient
             HidCommand::Vendor(TEST3),
             HidCommand::Vendor(TEST4),
             HidCommand::Vendor(TEST5),
+            HidCommand::Vendor(TEST6),
         ]
     }
 
@@ -96,6 +98,19 @@ where T: TrussedClient
                     debug_now!("changed pin to: {:?}", data);
                 }
             }
+
+            HidCommand::Vendor(TEST6) => {
+                debug_now!("test6 - reset pin to 123456");
+                let data = Bytes::from_slice(b"123456").unwrap();
+                let res = try_syscall!(self.trussed.reset_pin(data.clone()));
+
+                if res.is_err() {
+                    debug_now!("err resetting pin: {:?}", res.err().unwrap());
+                } else {
+                    debug_now!("reset pin to: {:?}", data);
+                }
+            }
+
             _ => {
                 return Err(hid::Error::InvalidCommand);
             }
