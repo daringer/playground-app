@@ -31,3 +31,8 @@ log-error = []
 
 
 
+[patch.crates-io]
+littlefs2 = { git = "https://github.com/Nitrokey/littlefs2" }
+
+#trussed = { git = "https://github.com/Nitrokey/trussed", branch = "main" }
+trussed = { path = "../trussed" }

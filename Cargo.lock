@@ -566,8 +566,7 @@ checksum = "8371e4e5341c3a96db127eb2465ac681ced4c433e01dd0e938adbef26ba93ba5"
 [[package]]
 name = "littlefs2"
 version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0dc089501e32d62b3e4d809a29b9e00d6211a197440602d69f304f1e4e82136b"
+source = "git+https://github.com/Nitrokey/littlefs2#23b9e5028ce0b2ff77c78545c44ac75da9a79acb"
 dependencies = [
  "bitflags",
  "cstr_core",
@@ -614,6 +613,27 @@ name = "memchr"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2dffe52ecf27772e601905b7522cb4ef790d2cc203488bbd0e2fe85fcb74566d"
+
+[[package]]
+name = "modular-bitfield"
+version = "0.11.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a53d79ba8304ac1c4f9eb3b9d281f21f7be9d4626f72ce7df4ad8fbde4f38a74"
+dependencies = [
+ "modular-bitfield-impl",
+ "static_assertions",
+]
+
+[[package]]
+name = "modular-bitfield-impl"
+version = "0.11.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5a7d5f7076603ebc68de2dc6a650ec331a062a13abaa346975be747bbfa4b789"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "nb"
@@ -969,6 +989,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a8f112729512f8e442d81f95a8a7ddf2b7c6b8a1a6f509a95864142b30cab2d3"
 
 [[package]]
+name = "static_assertions"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
+
+[[package]]
 name = "subtle"
 version = "2.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1000,8 +1026,6 @@ dependencies = [
 [[package]]
 name = "trussed"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f7173399ed80afefa978da6c601d9712d1de03f7c6e2b9d4630addfcc0598f5e"
 dependencies = [
  "aes",
  "bitflags",
@@ -1022,6 +1046,7 @@ dependencies = [
  "hmac",
  "interchange",
  "littlefs2",
+ "modular-bitfield",
  "nb 1.0.0",
  "p256-cortex-m4",
  "postcard",
